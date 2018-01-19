@@ -1,9 +1,8 @@
 #include<iostream>
 using namespace std;
-void main() {
-	int N;
+int main() {
+	int N = 0;
 	cin >> N;
-	for (int i = 1; i <= N; i++) {
-		cout << i << endl;
-	}
+	for (int i = 1; i <= N; i++)
+		cout << i << "\n";
 }
