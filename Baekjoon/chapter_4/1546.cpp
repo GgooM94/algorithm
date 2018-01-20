@@ -21,6 +21,5 @@ int main(void)
 	cout << fixed;
 	cout.precision(2);
 	cout << result;
-
 	delete[] arr;
 }
