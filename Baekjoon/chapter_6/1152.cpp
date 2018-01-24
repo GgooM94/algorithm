@@ -1,11 +1,19 @@
 #include<iostream>
+#include<string>
 using namespace std;
-#define size 1000000
 int main(void)
 {
-char n[size];
+	string word;
+	int count(1);
+	getline(cin, word);
+	int size = word.length();
+	for (int i = 1; i < size; i++) {
+		if (word[i] != ' ' &&word[i - 1] == ' ') {
+			count++;
+		}
+	}
+	if (word[0] == ' ')
+		count--;
 
-
-
-
+	cout << count;
 }
