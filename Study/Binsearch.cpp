@@ -2,7 +2,7 @@
 #include<vector>
 int binsearch(const std::vector<int> arr, int x) {
 	int n = arr.size();
-	int lo =0, hi = n;
+	int lo =-1, hi = n;
 	while (lo + 1 < hi) {
 		int mid = (lo + hi) / 2;
 		if (arr[mid] < x)
