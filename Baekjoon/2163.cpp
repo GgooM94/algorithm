@@ -1,5 +1,4 @@
 #include<iostream>
-int cnt(0);
 int count(int n) {
 	if (n == 1)
 		return 0;
