@@ -4,7 +4,7 @@
 int main(void) {
 	using namespace std;
 	ios::sync_with_stdio(false);
-	cin.tie();
+	cin.tie(NULL);
 	vector<int> arr(10);
 	
 	string str;
@@ -18,7 +18,5 @@ int main(void) {
 	for (i = arr.size() - 1; i >= 0; i--) {
 		for (j = arr[i]; j > 0; j--)
 			cout << i;
-	}
-
-	
+	}	
 }
