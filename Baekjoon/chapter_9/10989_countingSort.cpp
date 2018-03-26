@@ -12,7 +12,7 @@ int main(void) {
 	int *arrC = new int[N] { 0, };
 
 	for (int i = 0; i < N; i++) {
-		cin >> arrA[i];
+		cin >> arrA[i];  
 		arrB[arrA[i]]++;
 	}
 	for (int i = 1; i < MAX; i++) {
