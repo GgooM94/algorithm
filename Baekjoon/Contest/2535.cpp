@@ -10,7 +10,6 @@ struct student
 bool scoreSort(const student& stu1, const student& stu2) {
 	return stu1.stuScore > stu2.stuScore;
 }
-
 int main(void) {
 	using namespace std;
 	ios::sync_with_stdio(false);
