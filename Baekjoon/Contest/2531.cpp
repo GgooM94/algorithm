@@ -17,7 +17,6 @@ int main(void) {
 		cin >> arr[i];
 		arr[i + N] = arr[i];
 	}
-
 	for (i = 1; i <= N; i++) {
 		tot = 0;
 		memset(choice, 0, sizeof(choice));
