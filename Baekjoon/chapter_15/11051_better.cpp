@@ -11,7 +11,6 @@ int main(void) {
 	cin >> N >> K;
 	for (i = 1; i <= N; i++) {
 		DP[i] = 1;
-
 		for (j = i-1; j > 1; j--) {
 			DP[j] = (DP[j] + DP[j - 1])% MOD;
 		}
