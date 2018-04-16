@@ -5,7 +5,7 @@
 #include<functional>
 #include<memory.h>
 using namespace std;
-int N, i, j,tot(0);
+int N, i, j, tot(0);
 int arr[125][125];
 bool visit[125][125];
 int dx[] = { 1,0,-1,0 };
@@ -25,10 +25,16 @@ public:
 bool operator>(const Point& a, const Point& b) {
 	return a.cnt > b.cnt;
 }
+/*
+functional 헤더파일에 존재하는 less, greater
 
+priority_queue<int> : 기본, 큰 값을 우선 순위로
+priority_queue<int, vector<int>,less<int>> : 큰 값을 우선순위로, default 값
+priority_queue<int, vector<int>, greater<int>> : 작은 값을 우선순위로
+*/
 int Dijkstra(int a, int b) {
 	tot = arr[0][0];
-	std::priority_queue<Point,vector<Point>,greater<Point>>que;
+	std::priority_queue<Point, vector<Point>, greater<Point>>que;
 	que.push(Point(0, 0, tot));
 	visit[0][0] = true;
 
@@ -49,9 +55,9 @@ int Dijkstra(int a, int b) {
 			if (nextX < 0 || nextY < 0 || nextX >= N || nextY >= N)continue;
 			if (visit[nextX][nextY] == 1)continue;
 			visit[nextX][nextY] = 1;
-			que.push(Point(nextX, nextY, count + arr[nextX][nextY]));	
+			que.push(Point(nextX, nextY, count + arr[nextX][nextY]));
 		}
-		
+
 	}
 }
 int main(void) {
@@ -72,6 +78,6 @@ int main(void) {
 				cin >> arr[i][j];
 			}
 		}
-		cout << "Problem "<<n++<<": "<< Dijkstra(0, 0)<<"\n";
+		cout << "Problem " << n++ << ": " << Dijkstra(0, 0) << "\n";
 	}
 }
