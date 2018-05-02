@@ -13,8 +13,9 @@ string sum(const string &a, const string &b) {
 	int j = b.size() - 1;
 	string num;
 
-	for (int i = 0; i < (a.size() >= b.size() ? a.size() + 1 : b.size() + 1); i++)
+	for (int i = 0; i < (a.size() >= b.size() ? a.size() + 1 : b.size() + 1); i++) {
 		num += '0';
+	}
 
 	while (i >= 0 && j >= 0)
 	{
