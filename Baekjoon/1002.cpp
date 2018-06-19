@@ -6,6 +6,7 @@ int main(void) {
 	std::cin.sync_with_stdio(false);
 	int n;
 	std::cin >> n;
+
 	int *result = new int[n];
 	for (i = 0; i <n; i++) {
 		std::cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
@@ -14,6 +15,7 @@ int main(void) {
 			result[i] = -1;
 			continue;
 		}
+
 		double distance = sqrt(temp);
 		if (r1 + r2 == distance || distance == (r1 > r2 ? r1 - r2 : r2 - r1))
 			result[i] = 1;
