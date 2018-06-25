@@ -11,7 +11,6 @@ int main(void) {
 	cin >> N >> M;
 	vector<int>A(N);
 	vector<int>B(M);
-
 	for (i = 0; i < N; i++)
 		cin >> A[i];
 	for (i = 0; i < M; i++)
