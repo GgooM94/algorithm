@@ -2,7 +2,6 @@
 
 using namespace std;
 
-// Complete the diagonalDifference function below.
 int diagonalDifference(vector<vector<int>> a) {
 
 	int index = a.size();
