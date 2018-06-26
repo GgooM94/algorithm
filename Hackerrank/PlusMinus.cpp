@@ -7,7 +7,6 @@ using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the plusMinus function below.
 void plusMinus(vector<int> arr) {
 
 	int pos(0), neg(0), zero(0);
