@@ -23,5 +23,5 @@ int main(void) {
 	if (tot == 0)
 		cout << -1;
 	else
-		cout << tot << "\n" << minRes;
+1		cout << tot << "\n" << minRes;
 }
