@@ -6,7 +6,7 @@ using namespace std;
 int main(void)
 {
 	int C, R, maxCnt(0);
-	int startPoint;
+	int startPoint(0);
 	cin >> C >> R;
 
 	vector<vector<int>>arr(C, vector<int>(R));
@@ -16,7 +16,6 @@ int main(void)
 			cin >> arr[i][j];
 		}
 	}
-
 	for (int i = 0; i < R; i++) {
 
 		int ground = C - 1;
@@ -77,4 +76,29 @@ TestCase
 1 1 1 1 0 1
 
 ´ä : 2
+
+6 7
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+1 1 1 0 0 1 0
+1 1 1 1 0 1 0
+1 1 1 1 0 1 0
+1 1 1 1 0 1 0
+
+6 7
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+1 1 1 0 0 1 0
+1 1 1 1 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+6 8
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+1 1 1 0 0 1 0 0
+1 1 1 1 0 1 1 0
+1 1 1 1 1 1 1 0
+1 1 1 1 1 1 1 0
+
 */
