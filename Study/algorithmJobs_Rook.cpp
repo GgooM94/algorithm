@@ -1,91 +1,102 @@
 #include<iostream>
-#include<algorithm>
 #include<vector>
+#include<utility>
 using namespace std;
+#define C 8
+#define R 8
 
-int main()
+struct Point
 {
-	int C, R, res;
-	int copyC, copyR;
-	int y(0), x(0);
-	int input(1);
+	int x, y;
+};
 
-	cin >> C >> R >> res;
+int main(void)
+{
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
-	if (res > R*C)
-	{
-		cout << '0';
+	int map[C][R];
+	vector<Point>arr;
+	Point point;
+
+	for (int i = 0; i < C; i++) {
+		for (int j = 0; j < R; j++) {
+			cin >> map[i][j];
+
+			if (map[i][j] == 2)
+			{
+				point.y = i;
+				point.x = j;
+				arr.push_back(point);
+			}
+
+		}
 	}
-	else
-	{
-		copyC = C - 1;
-		copyR = R;
+	bool res = false;
 
-		vector<vector<int>>arr(C, vector<int>(R));
+	for (int i = 0; i < arr.size(); i++) {
+		int col, row;
+		col = arr[i].y;
+		row = arr[i].x;
 
-		while (true)
+		if (res == true)
 		{
-			for (int i = 0; i < copyR; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				x++;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyR--;
-			x--;
-			y++;
-
-			for (int i = 0; i < copyC; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				y++;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyC--;
-			x--;
-			y--;
-
-			for (int i = 0; i < copyR; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				x--;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyR--;
-			x++;
-			y--;
-
-			for (int i = 0; i < copyC; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				y--;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyC--;
-			x++;
-			y++;
-
-
+			break;
 		}
-		for (int i = 0; i < C; i++) {
-			for (int j = 0; j < R; j++) {
-				if (arr[i][j] == res) {
-					cout << i + 1 << ' ' << j + 1;
-					return 0;
-				}
-			}
+
+		for (int j = col - 1; j >= 0; j--) {
+			if (map[j][row] == 0)
+				continue;
+			if (map[j][row] == 1)
+				res = true;
+			if (map[j][row] == 2 || map[j][row] == 3)
+				break;
+		}
+
+		for (int j = col + 1; j <C; j++) {
+			if (map[j][row] == 0)
+				continue;
+			if (map[j][row] == 1)
+				res = true;
+			if (map[j][row] == 2 || map[j][row] == 3)
+				break;
+		}
+
+		for (int j = row - 1; j >= 0; j--) {
+			if (map[col][j] == 0)
+				continue;
+			if (map[col][j] == 1)
+				res = true;
+			if (map[col][j] == 2 || map[col][j] == 3)
+				break;
+		}
+
+		for (int j = row + 1; j <R; j++) {
+			if (map[col][j] == 0)
+				continue;
+			if (map[col][j] == 1)
+				res = true;
+			if (map[col][j] == 2 || map[col][j] == 3)
+				break;
 		}
 	}
+
+	res ? (cout << 1) : (cout << 0);
 }
+
+
+/*
+TestCase
+
+0 3 0 0 0 0 0 0
+3 1 0 0 0 0 2 0
+0 3 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+
+´ä : 1
+
+*/
