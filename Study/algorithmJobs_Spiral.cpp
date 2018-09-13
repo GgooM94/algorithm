@@ -1,91 +1,77 @@
 #include<iostream>
-#include<algorithm>
-#include<vector>
 using namespace std;
 
-int main()
+int main(void)
 {
-	int C, R, res;
-	int copyC, copyR;
-	int y(0), x(0);
-	int input(1);
+	int N;
+	cin >> N;
 
-	cin >> C >> R >> res;
+	int **arr;
+	arr = new int*[N];
 
-	if (res > R*C)
+	for (int i = 0; i < N; i++)
+		arr[i] = new int[N];
+
+	int x(0), y(0), cnt(1);
+	int copyX = N;
+	int copyY = N - 1;
+
+	while (true)
 	{
-		cout << '0';
-	}
-	else
-	{
-		copyC = C - 1;
-		copyR = R;
-
-		vector<vector<int>>arr(C, vector<int>(R));
-
-		while (true)
-		{
-			for (int i = 0; i < copyR; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				x++;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyR--;
-			x--;
-			y++;
-
-			for (int i = 0; i < copyC; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				y++;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyC--;
-			x--;
-			y--;
-
-			for (int i = 0; i < copyR; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				x--;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyR--;
+		for (int i = 0; i < copyX; i++) {
+			arr[y][x] = cnt;
+			cnt++;
 			x++;
-			y--;
+		}
+		if (cnt - 1 >= N*N)
+			break;
+		copyX--;
+		x--;
+		y++;
 
-			for (int i = 0; i < copyC; i++)
-			{
-				arr[y][x] = input;
-				input++;
-				y--;
-			}
-			if (input - 1 >= R*C)
-				break;
-
-			copyC--;
-			x++;
+		for (int i = 0; i < copyY; i++) {
+			arr[y][x] = cnt;
+			cnt++;
 			y++;
-
-
 		}
-		for (int i = 0; i < C; i++) {
-			for (int j = 0; j < R; j++) {
-				if (arr[i][j] == res) {
-					cout << i + 1 << ' ' << j + 1;
-					return 0;
-				}
-			}
+		if (cnt - 1 >= N*N)
+			break;
+		copyY--;
+		x--;
+		y--;
+
+		for (int i = 0; i < copyX; i++) {
+			arr[y][x] = cnt;
+			cnt++;
+			x--;
 		}
+		if (cnt - 1 >= N*N)
+			break;
+		copyX--;
+		x++;
+		y--;
+
+		for (int i = 0; i < copyY; i++) {
+			arr[y][x] = cnt;
+			cnt++;
+			y--;
+		}
+		if (cnt - 1 >= N*N)
+			break;
+		copyY--;
+		x++;
+		y++;
 	}
+
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	for (int i = 0; i < N; i++)
+		delete[] arr[i];
+	delete[] arr;
+
 }
