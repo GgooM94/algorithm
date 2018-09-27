@@ -21,7 +21,7 @@ int main()
 
 	for (int i = 0; i < arr.size(); i++)
 	{
-		int sum(0), index;
+		int sum(0),index;
 		index = i;
 		arrSum[i] = arr[i];
 		for (int j = i + 1; j < arr.size(); j++)
@@ -43,7 +43,7 @@ int main()
 	}
 
 	maxArr.push_back(arr[maxIndex]);
-	for (int i = maxIndex + 1; i < arrSum.size(); i++)
+	for (int i = maxIndex+1; i < arrSum.size(); i++) 
 	{
 		if (maxArr.back() < arr[i])
 			maxArr.push_back(arr[i]);
